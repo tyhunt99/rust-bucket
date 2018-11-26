@@ -1,0 +1,24 @@
+[package]
+name = "rust-bucket"
+version = "0.0.1"
+authors = [ "Tyler Hunt <tyler.s.hunt05@gmail.com>" ]
+
+[badges]
+# circle-ci = { repository = "tyhunt99/rust-bucket", branch = "master" }
+codecov = { repository = "tyhunt99/rust-bucket", branch = "master", service = "github" }
+maintenance = { status = "actively-developed" }
+
+[[bin]]
+name = "app"
+path = "src/frontend/main.rs"
+required-features = ["frontend"]
+
+[dependencies]
+yew = { optional = true, git = "https://github.com/DenisKolodin/yew.git", branch = "master"}
+stdweb = { version = "0.4.10", optional = true }
+
+[features]
+frontend = [
+    "stdweb",
+    "yew",
+]
