@@ -18,6 +18,7 @@ enum Msg {
 impl Component for Model {
     type Message = Msg;
     type Properties = ();
+
     fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
         Self {
             value: 0,
@@ -44,7 +45,5 @@ impl Renderable<Model> for Model {
 }
 
 fn main() {
-    yew::initialize();
-    App::<Model>::new().mount_to_body();
-    yew::run_loop();
+    yew::start_app::<Model>();
 }
